@@ -1,5 +1,6 @@
 # ---------- Build Stage ----------
-FROM eclipse-temurin:25-jdk AS build
+FROM eclipse-temurin:21-jdk AS build
+
 
 # Install Maven manually in case CI/CD base image doesn’t include it
 RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
