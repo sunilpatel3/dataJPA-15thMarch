@@ -1,0 +1,18 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.ProductDTO.ProductDTO;
+import com.example.demo.entity.Product;
+import com.example.demo.projection.ProductView;
+
+@Repository
+public interface ProductRepository extends JpaRepository<Product, Long> {
+
+	List<ProductView> findByPriceGreaterThan(double price);
+	
+	List<ProductDTO> findByNameContaining(String name);
+}
